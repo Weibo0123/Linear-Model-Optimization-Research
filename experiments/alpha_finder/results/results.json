@@ -1,0 +1,26 @@
+[
+    {
+        "alpha": 0.001,
+        "cost": 6.96227492890983,
+        "iterations": 100,
+        "status": "stable"
+    },
+    {
+        "alpha": 0.01,
+        "cost": 5.786887765647533,
+        "iterations": 100,
+        "status": "stable"
+    },
+    {
+        "alpha": 0.1,
+        "cost": 8.473686532570003e+81,
+        "iterations": 100,
+        "status": "unstable"
+    },
+    {
+        "alpha": 1,
+        "cost": Infinity,
+        "iterations": 100,
+        "status": "diverged"
+    }
+]

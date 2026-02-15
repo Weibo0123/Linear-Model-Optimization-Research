@@ -23,6 +23,5 @@ def gradient_descent(x: np.ndarray, y: np.ndarray, w: float, b: float, alpha: fl
         w -= alpha * dw
         b -= alpha * db
 
-        if i % 10 == 0:
-            cost_history.append(compute_cost(x, y, w, b))
+        cost_history.append(compute_cost(x, y, w, b))
     return w, b, cost_history
