@@ -1,7 +1,7 @@
 """
 alpha_comparison.py
 """
-from src.model import gradient_descent
+from src.single_linear_regression import gradient_descent, normal_equation
 import numpy as np
 import csv
 import json
@@ -9,6 +9,9 @@ import os
 
 data_file = "./data/study_hour_score.csv"
 results = []
+alpha_list = [0.001, 0.01, 0.1, 1]
+num_iters = 100
+
 def main():
     hours = []
     scores = []
@@ -20,12 +23,13 @@ def main():
 
     x = np.array(hours)
     y = np.array(scores)
-    alpha_list = [0.001, 0.01, 0.1, 1]
+
     for alpha in alpha_list:
         w0, b0 = 1.0, 1.0
-        w, b, cost_history = gradient_descent(x, y, w0, b0, alpha, 100)
+        w, b, cost_history = gradient_descent(x, y, w0, b0, alpha, num_iters)
 
         final_cost = cost_history[-1] if len(cost_history) > 0 else None
+
         status = "stable"
         if final_cost is None or not np.isfinite(final_cost):
             status = "diverged"
